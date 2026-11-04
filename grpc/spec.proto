@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "./grpc";
+
+package grpc;
+
+service AgreementService {
+  rpc Request(AgreementReq) returns (AgreementRes);
+  rpc Reply(AgreementRep) returns (AgreementRes);
+}
+
+message AgreementReq {
+  int64 resource_id = 1;
+  int64 lamport = 2;
+  int64 process_id = 3;
+}
+
+message AgreementRep {
+  int64 resource_id = 1;
+  int64 lamport = 2;
+  int64 process_id = 3;
+}
+
+message AgreementRes {
+  string message = 1;
+}
